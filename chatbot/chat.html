@@ -11,6 +11,7 @@
         <header>
             <h1>StudyBuddy AI</h1>
             <p class="tagline">Your Gemini-powered study assistant</p>
+            <button id="clearChatBtn" style="margin-bottom: 15px; padding: 8px 15px; background-color: var(--secondary-color); color: white; border: none; border-radius: 5px; cursor: pointer;">Clear Chat</button>
         </header>
         
         <div class="chat-container">
@@ -20,7 +21,9 @@
                 </div>
             </div>
             
-            <div class="loading" id="loadingIndicator">Thinking...</div>
+            <div class="loading" id="loadingIndicator">
+                <div class="spinner"></div>
+            </div>
             
             <div class="input-area">
                 <textarea 
@@ -44,5 +47,7 @@
     </div>
 
     <script src="chat_scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </body>
 </html>

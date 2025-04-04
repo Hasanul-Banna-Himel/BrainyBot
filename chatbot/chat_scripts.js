@@ -9,14 +9,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const API_URL = 'http://localhost:5000/ask';
     
     // Function to add a message to the chat history
-    function addMessage(message, isUser) {
+    function addMessage(content, isUser) {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message');
         messageDiv.classList.add(isUser ? 'user-message' : 'assistant-message');
-        messageDiv.textContent = message;
+    
+        if (isUser) {
+            messageDiv.textContent = content; // User messages as plain text
+        } else {
+            // Use marked.js and DOMPurify for assistant messages
+            messageDiv.innerHTML = DOMPurify.sanitize(marked.parse(content));
+        }
+    
         chatHistory.appendChild(messageDiv);
-        
-        // Scroll to the bottom of the chat history
         chatHistory.scrollTop = chatHistory.scrollHeight;
     }
     
@@ -69,5 +74,16 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             handleSubmit();
         }
+    });
+    const clearChatBtn = document.getElementById('clearChatBtn');
+    const initialAssistantMessageHTML = chatHistory.querySelector('.assistant-message')?.outerHTML; // Store initial message HTML
+
+    clearChatBtn.addEventListener('click', () => {
+        chatHistory.innerHTML = ''; // Clear visual chat
+        if (initialAssistantMessageHTML) {
+            chatHistory.innerHTML = initialAssistantMessageHTML; // Add greeting back
+        }
+        // If you implement backend history (Block 7), reset it here too.
+        // e.g., chatHistoryArray = []; (if using client-side array for history)
     });
 });

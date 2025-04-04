@@ -106,11 +106,11 @@ button:hover {
 }
 
 .loading {
-    display: none;
+    display: none; /* Keep this */
     margin: 10px 0;
-    color: #5f6368;
-    font-style: italic;
+    text-align: center; /* Center the spinner */
 }
+
 
 footer {
     margin-top: 30px;
@@ -125,4 +125,46 @@ footer {
     background-color: #fef7e0;
     border-left: 4px solid var(--accent-color);
     font-size: 0.9rem;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: var(--primary-color); /* Use your theme color */
+    display: inline-block; /* Needed for centering */
+    animation: spin 1s ease infinite;
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+@media (max-width: 600px) {
+    body {
+        padding: 10px; /* Reduce overall padding */
+    }
+    .container {
+        padding: 15px; /* Reduce container padding */
+    }
+    .chat-container {
+        height: 75vh; /* Adjust chat height */
+    }
+    .input-area {
+        flex-direction: column; /* Stack input and button vertically */
+        gap: 8px;
+    }
+    textarea {
+        rows: 2; /* Slightly smaller input area */
+    }
+    button {
+        width: 100%; /* Full-width button */
+    }
+    .message {
+        max-width: 90%; /* Allow messages to use more width */
+    }
+    .ethical-notice, footer {
+         font-size: 0.8rem; /* Slightly smaller text */
+    }
 }
