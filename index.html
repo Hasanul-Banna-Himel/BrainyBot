@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyBuddy AI - Gemini-Powered Study Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>StudyBuddy AI</h1>
+            <p class="tagline">Your Gemini-powered study assistant</p>
+        </header>
+        
+        <div class="chat-container">
+            <div class="chat-history" id="chatHistory">
+                <div class="message assistant-message">
+                    Hello! I'm your StudyBuddy AI assistant. How can I help with your studies today?
+                </div>
+            </div>
+            
+            <div class="loading" id="loadingIndicator">Thinking...</div>
+            
+            <div class="input-area">
+                <textarea 
+                    id="userPrompt" 
+                    placeholder="Ask me any study question..." 
+                    rows="3"
+                ></textarea>
+                <button id="submitBtn">Send</button>
+            </div>
+        </div>
+        
+        <div class="ethical-notice">
+            <strong>Remember:</strong> This tool is designed to help you learn and understand concepts better. 
+            Use it to enhance your learning, not to replace it. Always cite AI assistance in your academic work 
+            when appropriate and verify information with trusted sources.
+        </div>
+        
+        <footer>
+            <p>Powered by Google Gemini API | Created for educational purposes</p>
+        </footer>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
