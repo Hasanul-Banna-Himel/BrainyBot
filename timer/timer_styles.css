@@ -220,7 +220,8 @@
     .quote-display {
       text-align: center;
       font-style: italic;
-      color: #6b7280; /* Slightly muted color */
+      color: #6b7280; /* Dark gray for the quote text */
+      background-color: #f3f4f6; /* Light gray for the quote background */
       opacity: 0.9;
       margin-top: 1.5rem;
       padding: 0 1rem;
