@@ -106,7 +106,7 @@ button:hover {
 }
 
 .loading {
-    display: none; /* Keep this */
+    display: none; 
     margin: 10px 0;
     text-align: center; /* Center the spinner */
 }
@@ -132,7 +132,7 @@ footer {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    border-left-color: var(--primary-color); /* Use your theme color */
+    border-left-color: var(--primary-color); /* Primary color for the spinner */
     display: inline-block; /* Needed for centering */
     animation: spin 1s ease infinite;
 }

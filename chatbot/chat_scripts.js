@@ -6,14 +6,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const loadingIndicator = document.getElementById('loadingIndicator');
     const clearChatBtn = document.getElementById('clearChatBtn'); // Get clear button
 
-    // Backend API URL (adjust as needed)
+    // Backend API URL 
     const API_URL = 'http://localhost:5000/ask';
 
-    // --- Optional: Define the initial greeting message ---
-    // If you have a standard greeting message you want to restore after clearing,
-    // define its content here. Otherwise, the chat will just become empty.
+    
     const initialAssistantMessageContent = "Hello! How can I help you today?"; // Example content
-    const hasInitialGreeting = true; // Set to false if you don't want a greeting restored
+    const hasInitialGreeting = true; 
 
     // Function to add a message to the chat history
     function addMessage(content, isUser) {
@@ -24,11 +22,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isUser) {
             messageDiv.textContent = content; // User messages as plain text (Safer)
         } else {
-            // Ensure marked and DOMPurify are loaded and available in the global scope
+            
             if (typeof marked !== 'undefined' && typeof DOMPurify !== 'undefined') {
-                // Use marked.js to parse Markdown and DOMPurify to sanitize the resulting HTML
+                
                 try {
-                     // Configure DOMPurify if needed (optional, default settings are often good)
+                    
                     // DOMPurify.setConfig({ USE_PROFILES: { html: true } });
                     messageDiv.innerHTML = DOMPurify.sanitize(marked.parse(content));
                 } catch (parseError) {
@@ -124,10 +122,6 @@ document.addEventListener('DOMContentLoaded', function() {
             addMessage(initialAssistantMessageContent, false);
         }
 
-        // If you implement backend history tracking, you would add a call here
-        // to clear that history as well (e.g., send a request to a /clear endpoint).
-        // console.log("Chat cleared. Implement backend history reset if needed.");
-
         userPrompt.focus(); // Focus input after clearing
     }
 
@@ -146,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
     clearChatBtn.addEventListener('click', clearChat);
 
     // --- Initial Setup ---
-    // Add the initial greeting when the page loads
+    
      if (hasInitialGreeting && initialAssistantMessageContent) {
         // Check if the initial message element already exists from HTML
         // This prevents adding it again if it's hardcoded in index.html
